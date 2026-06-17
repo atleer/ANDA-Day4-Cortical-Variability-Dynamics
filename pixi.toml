@@ -1,0 +1,41 @@
+[workspace]
+authors = ["Nicholas A. Del Grosso <delgrosso.nick@gmail.com>"]
+channels = ["conda-forge"]
+name = "anda-d4"
+platforms = ["linux-64", "osx-64", "win-64", "osx-arm64"]
+version = "0.1.0"
+
+[tasks]
+install-kernel = "python -m ipykernel install --user --name anda-d4"
+
+[dependencies]
+python = ">=3.13,<3.15"
+pip = ">=26.1.2,<27"
+
+[pypi-dependencies]
+neo = ">=0.14.4, <0.15"
+elephant = ">=1.2.1, <2"
+quantities = ">=0.16.4, <0.17"
+numpy = ">=2.4.6, <3"
+scipy = ">=1.17.1, <2"
+matplotlib = ">=3.11.0, <4"
+ipykernel = ">=7.3.0, <8"
+pyocclient = ">=0.6, <0.7"
+
+
+### Jupyter Lab Environment (pixi run jupyter) #############
+
+[feature.jupyter.dependencies]
+python = "3.13.*"
+
+[feature.jupyter.pypi-dependencies]
+jupyterlab = ">=4"
+
+[feature.jupyter.tasks]
+jupyter = "jupyter lab"
+
+[environments.jupyter]
+features = ["jupyter"]
+no-default-feature = true
+
+################################################
